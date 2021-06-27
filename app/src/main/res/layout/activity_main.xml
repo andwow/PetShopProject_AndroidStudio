@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <fragment
-        class = "com.example.petshopproject.ShopsFragment"
+        class = "com.example.petshopproject.fragments.ShopsFragment"
         android:id="@+id/fragment"
         android:layout_width="0dp"
         android:layout_height="0dp"

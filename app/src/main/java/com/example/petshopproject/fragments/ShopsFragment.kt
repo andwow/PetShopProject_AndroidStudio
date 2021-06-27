@@ -1,10 +1,11 @@
-package com.example.petshopproject
+package com.example.petshopproject.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.petshopproject.R
 
 class ShopsFragment : Fragment() {
     override fun onCreateView(
