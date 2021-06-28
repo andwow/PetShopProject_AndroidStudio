@@ -18,8 +18,8 @@ import java.util.ArrayList;
 public class ShopAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private ArrayList<Shop> shops;
     private OnShopItemClick onShopItemClick;
-    public ShopAdapter(ArrayList<Shop> userList, OnShopItemClick onShopItemClick) {
-        this.shops = userList;
+    public ShopAdapter(ArrayList<Shop> shopList, OnShopItemClick onShopItemClick) {
+        this.shops = shopList;
         this.onShopItemClick = onShopItemClick;
     }
 
