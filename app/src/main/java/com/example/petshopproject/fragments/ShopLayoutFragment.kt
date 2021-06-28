@@ -15,8 +15,7 @@ import com.example.petshopproject.interfaces.OnShopItemClick
 import com.example.petshopproject.models.Product
 import com.example.petshopproject.models.Shop
 
-class ShopLayoutFragment (shopId: Int) : Fragment() {
-    private val shopId = shopId
+class ShopLayoutFragment : Fragment() {
     private val products: ArrayList<Product> = ArrayList()
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,7 +30,6 @@ class ShopLayoutFragment (shopId: Int) : Fragment() {
     private fun setUpRecyclerView(view: View) {
         val recyclerView = view.findViewById<RecyclerView>(R.id.products_recyclerview);
         val linearLayoutManager = LinearLayoutManager(view.context);
-        products.add(Product(1, "123", "123", 13.32F))
         recyclerView.layoutManager = linearLayoutManager
         val adapter = ProductAdapter(
             products,

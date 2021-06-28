@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <fragment
-        class = "com.example.petshopproject.fragments.ShopsFragment"
+    <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment"
         android:layout_width="0dp"
         android:layout_height="0dp"

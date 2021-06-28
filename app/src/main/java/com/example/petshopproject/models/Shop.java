@@ -1,19 +1,26 @@
 package com.example.petshopproject.models;
 
 public class Shop {
-    private int shopId;
+    private Long shopId;
     private String name;
     private String description;
     private String location;
-    public Shop(int shopId, String name, String description, String location) {
+    public Shop() {
+        shopId = 0L;
+        name = "";
+        description = "";
+        location = "";
+    }
+    public Shop(Long shopId, String name, String description, String location) {
         this.shopId = shopId;
         this.name = name;
+        this.description = description;
         this.location = location;
     }
-    public void setShopId(int shopId) {
+    public void setShopId(Long shopId) {
         this.shopId = shopId;
     }
-    public int getShopId() {
+    public Long getShopId() {
         return shopId;
     }
     public void setName(String name) {
