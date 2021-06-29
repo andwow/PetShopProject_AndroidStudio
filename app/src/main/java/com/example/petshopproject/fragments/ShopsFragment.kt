@@ -14,9 +14,11 @@ import com.example.petshopproject.ShoppingActivity
 import com.example.petshopproject.adapters.ShopAdapter
 import com.example.petshopproject.interfaces.OnShopItemClick
 import com.example.petshopproject.models.Shop
+import com.example.petshopproject.models.User
 import com.google.firebase.firestore.*
 
-class ShopsFragment : Fragment() {
+class ShopsFragment(user: User) : Fragment() {
+    private val user: User = user
     private val shops: ArrayList<Shop> = ArrayList()
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,7 +44,7 @@ class ShopsFragment : Fragment() {
 
     private fun eventChangeListener(adapter : ShopAdapter) {
         val db = FirebaseFirestore.getInstance()
-        db.collection("petshop").addSnapshotListener(object: EventListener<QuerySnapshot> {
+        db.collection("petshops").addSnapshotListener(object: EventListener<QuerySnapshot> {
             override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
                 if(error != null) {
                     Log.e("Firestore error", error.message.toString())
@@ -62,7 +64,9 @@ class ShopsFragment : Fragment() {
     }
 
     private fun changeActivity(shop: Shop) {
-        val switchActivityIntent = Intent(super.requireActivity(), ShoppingActivity::class.java).putExtra("shop", shop)
+        val switchActivityIntent = Intent(super.requireActivity(), ShoppingActivity::class.java)
+        switchActivityIntent.putExtra("shop", shop)
+        switchActivityIntent.putExtra("user", user)
         startActivity(switchActivityIntent);
     }
 }

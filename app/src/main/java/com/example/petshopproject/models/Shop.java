@@ -7,29 +7,22 @@ import java.io.Serializable;
 
 public class Shop implements Serializable {
     private String document;
-    private Long shopId;
     private String name;
     private String description;
     private String location;
     public Shop() {
-        shopId = 0L;
         name = "";
         description = "";
         location = "";
     }
-    public Shop(Long shopId, String name, String description, String location, String document) {
-        this.shopId = shopId;
+    public Shop(String document, String name, String description, String location) {
+        this.document = document;
         this.name = name;
         this.description = description;
         this.location = location;
-        this.document = document;
     }
-    public void setShopId(Long shopId) {
-        this.shopId = shopId;
-    }
-    public Long getShopId() {
-        return shopId;
-    }
+    public String getDocument() { return document; }
+    public void setDocument(String document) { this.document = document; }
     public void setName(String name) {
         this.name = name;
     }
@@ -46,6 +39,4 @@ public class Shop implements Serializable {
         this.location = location;
     }
     public String getLocation() { return location; }
-    public String getDocument() { return document; }
-    public void setDocument(String document) { this.document = document; }
 }

@@ -1,10 +1,8 @@
 package com.example.petshopproject
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.petshopproject.fragments.ShopsFragment
-import com.example.petshopproject.models.Shop
+import com.example.petshopproject.fragments.LoginFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,7 +14,7 @@ class MainActivity : AppCompatActivity() {
     private fun changeFragment() {
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.add(R.id.fragment, ShopsFragment())
+        fragmentTransaction.add(R.id.fragment, LoginFragment())
         fragmentTransaction.commit()
     }
 }

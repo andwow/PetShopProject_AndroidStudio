@@ -35,6 +35,10 @@ class ShopLayoutFragment(shop: Shop) : Fragment() {
         return view
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+    }
+
     private fun setUpRecyclerView(view: View) {
         val recyclerView = view.findViewById<RecyclerView>(R.id.products_recyclerview);
         val linearLayoutManager = LinearLayoutManager(view.context);
@@ -48,7 +52,7 @@ class ShopLayoutFragment(shop: Shop) : Fragment() {
 
     private fun eventChangeListener(adapter : ProductAdapter) {
         val db = FirebaseFirestore.getInstance()
-        db.collection("petshop").document(shop.document).collection("products").addSnapshotListener(object: EventListener<QuerySnapshot> {
+        db.collection("petshops").document(shop.document).collection("products").addSnapshotListener(object: EventListener<QuerySnapshot> {
             override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
                 if(error != null) {
                     Log.e("Firestore error", error.message.toString())
