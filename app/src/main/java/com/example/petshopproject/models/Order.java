@@ -4,12 +4,12 @@ public class Order {
     private int count;
     private Product product;
 
-    Order() {
+    public Order() {
         count = 0;
         product = new Product();
     }
 
-    Order(int count, Product product) {
+    public Order(int count, Product product) {
         this.count = count;
         this.product = product;
     }

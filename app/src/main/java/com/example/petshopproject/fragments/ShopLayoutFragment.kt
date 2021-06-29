@@ -37,15 +37,27 @@ class ShopLayoutFragment(shop: Shop, user: User) : Fragment() {
         return view
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        user.clearOrders()
+    }
+
     private fun setUpRecyclerView(view: View) {
         val recyclerView = view.findViewById<RecyclerView>(R.id.products_recyclerview);
         val linearLayoutManager = LinearLayoutManager(view.context);
         recyclerView.layoutManager = linearLayoutManager
         val adapter = ProductAdapter(
             products,
-            OnProductItemClick {})
+            OnProductItemClick { product -> showProduct(product) })
         recyclerView.adapter = adapter
         eventChangeListener(adapter)
+    }
+
+    private fun showProduct(product: Product) {
+        val fragmentManager = super.getActivity()?.supportFragmentManager
+        val fragmentTransaction = fragmentManager?.beginTransaction()
+        fragmentTransaction?.replace(R.id.shopping_fragment, ProductFragment(product, shop, user))
+        fragmentTransaction?.commit()
     }
 
     private fun eventChangeListener(adapter : ProductAdapter) {

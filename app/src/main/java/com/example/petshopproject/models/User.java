@@ -58,7 +58,7 @@ public class User implements Serializable {
         this.location = location;
     }
 
-    public void addProduct(Order order) { products.add(order); }
-    public void removeProduct(Order order) { products.remove(order); }
-    public void clearProducts(Order order) { products.clear(); }
+    public void addOrder(Order order) { products.add(order); }
+    public void removeOrder(Order order) { products.remove(order); }
+    public void clearOrders() { products.clear(); }
 }

@@ -8,13 +8,15 @@ import com.example.petshopproject.models.Shop
 import com.example.petshopproject.models.User
 
 class ShoppingActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.shopping_activity)
         val shop: Shop = intent.getSerializableExtra("shop") as Shop
-        val user: User = intent.getSerializableExtra("user") as User
+        val user = intent.getSerializableExtra("user") as User
         changeFragment(shop, user)
     }
+
     private fun changeFragment(shop: Shop, user: User) {
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()

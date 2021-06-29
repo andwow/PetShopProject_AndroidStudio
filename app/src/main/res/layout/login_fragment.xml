@@ -28,7 +28,8 @@
             android:layout_height="match_parent"
             android:hint="username"
             android:maxLength="100"
-            android:background="@color/purple_200"/>
+            android:background="@color/purple_200"
+            android:singleLine="true"/>
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="350dp"
@@ -46,7 +47,8 @@
             android:hint="password"
             android:maxLength="100"
             android:inputType="textPassword"
-            android:background="@color/purple_200"/>
+            android:background="@color/purple_200"
+            android:singleLine="true"/>
     </com.google.android.material.textfield.TextInputLayout>
     </FrameLayout>
     <LinearLayout
@@ -57,8 +59,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:orientation="horizontal"
-        android:layout_gravity="bottom|center">
+        android:orientation="horizontal">
         <Button
             android:id="@+id/login_button"
             android:text="@string/log_in"
