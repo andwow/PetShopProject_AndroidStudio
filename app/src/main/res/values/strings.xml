@@ -4,7 +4,7 @@
     <string name="description">Description:</string>
     <string name="shop_name">Shop Name</string>
     <string name="register">Register</string>
-    <string name="login">Login</string>
+    <string name="log_in">Log in</string>
     <string name="sign_up">Sign up</string>
     <string name="cancel">Cancel</string>
 </resources>
