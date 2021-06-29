@@ -41,11 +41,6 @@ class ShopLayoutFragment(private val shop: Shop, private val user: User) : Fragm
         return view
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        user.clearOrders()
-    }
-
     private fun viewYourCartFunction(user: User) {
         val fragmentManager = super.getActivity()?.supportFragmentManager
         val fragmentTransaction = fragmentManager?.beginTransaction()
