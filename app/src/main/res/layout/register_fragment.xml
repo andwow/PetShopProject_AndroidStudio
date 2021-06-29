@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.RegisterFragment">
+    tools:context=".fragments.RegisterFragment"
+    android:background="@color/teal_700">
     <LinearLayout
         android:id="@+id/first_linear_layout_register"
         android:layout_width="350dp"
@@ -19,12 +20,14 @@
             android:layout_height="50dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent">
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/username_register"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:hint="username"
-            android:maxLength="100"/>
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/username_register"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="username"
+                android:maxLength="100"
+                android:background="@color/purple_200"/>
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
         android:layout_width="350dp"
@@ -38,7 +41,8 @@
             android:layout_height="match_parent"
             android:hint="password"
             android:maxLength="100"
-            android:inputType="textPassword"/>
+            android:inputType="textPassword"
+            android:background="@color/purple_200"/>
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="350dp"
@@ -51,7 +55,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="e-mail"
-                android:maxLength="100"/>
+                android:maxLength="100"
+                android:background="@color/purple_200"/>
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="350dp"
@@ -66,7 +71,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:hint="location"
-                android:maxLength="100"/>
+                android:maxLength="100"
+                android:background="@color/purple_200"/>
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
     <LinearLayout
@@ -84,12 +90,14 @@
             android:text="@string/sign_up"
             android:layout_height="50dp"
             android:layout_width="145dp"
-            android:layout_margin="5dp"/>
+            android:layout_margin="5dp"
+            android:background="@color/purple_200"/>
         <Button
             android:id="@+id/cancel_button"
             android:text="@string/cancel"
             android:layout_height="50dp"
             android:layout_width="145dp"
-            android:layout_margin="5dp"/>
+            android:layout_margin="5dp"
+            android:background="@color/purple_200"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

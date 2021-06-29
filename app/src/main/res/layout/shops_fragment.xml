@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.ShopsFragment">
+    tools:context=".fragments.ShopsFragment"
+    android:background="@color/teal_700">
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/shops_recyclerview"
         android:layout_width="0dp"
