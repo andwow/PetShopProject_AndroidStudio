@@ -6,11 +6,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.ShopLayoutFragment"
     android:background="@color/teal_700">
+    <Button
+        android:id="@+id/view_your_cart"
+        android:layout_height="50dp"
+        android:layout_width="0dp"
+        android:layout_margin="10dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/list"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/view_your_cart"/>
     <FrameLayout
         android:id="@+id/list"
         android:layout_width="0dp"
         android:layout_height="250dp"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_your_cart"
         app:layout_constraintBottom_toTopOf="@id/products_recyclerview"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

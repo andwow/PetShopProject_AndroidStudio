@@ -12,32 +12,30 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.petshopproject.R
 import com.example.petshopproject.ShoppingActivity
 import com.example.petshopproject.adapters.ShopAdapter
-import com.example.petshopproject.interfaces.OnShopItemClick
 import com.example.petshopproject.models.Shop
 import com.example.petshopproject.models.User
 import com.google.firebase.firestore.*
 
-class ShopsFragment(user: User) : Fragment() {
-    private val user: User = user
+class ShopsFragment(private val user: User) : Fragment() {
     private val shops: ArrayList<Shop> = ArrayList()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val view: View = inflater.inflate(R.layout.shops_fragment, container, false)
         setUpRecyclerView(view)
         return view
     }
 
     private fun setUpRecyclerView(view: View) {
-        val recyclerView = view.findViewById<RecyclerView>(R.id.shops_recyclerview);
-        val linearLayoutManager = LinearLayoutManager(view.context);
+        val recyclerView = view.findViewById<RecyclerView>(R.id.shops_recyclerview)
+        val linearLayoutManager = LinearLayoutManager(view.context)
         recyclerView?.layoutManager = linearLayoutManager
 
         val adapter = ShopAdapter(
-            shops,
-            OnShopItemClick {shop -> changeActivity(shop)})
+            shops
+        ) { shop -> changeActivity(shop) }
         recyclerView?.adapter=adapter
         eventChangeListener(adapter)
     }
@@ -52,7 +50,7 @@ class ShopsFragment(user: User) : Fragment() {
                 }
                 for(dc:DocumentChange in value?.documentChanges!!) {
                     if (dc.type == DocumentChange.Type.ADDED) {
-                        var shop = dc.document.toObject(Shop::class.java);
+                        val shop = dc.document.toObject(Shop::class.java)
                         shop.document = dc.document.id
                         shops.add(shop)
                     }
@@ -67,6 +65,6 @@ class ShopsFragment(user: User) : Fragment() {
         val switchActivityIntent = Intent(super.requireActivity(), ShoppingActivity::class.java)
         switchActivityIntent.putExtra("shop", shop)
         switchActivityIntent.putExtra("user", user)
-        startActivity(switchActivityIntent);
+        startActivity(switchActivityIntent)
     }
 }

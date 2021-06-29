@@ -12,4 +12,5 @@
     <string name="more">More</string>
     <string name="less">Less</string>
     <string name="add_to_cart">Add to cart</string>
+    <string name="view_your_cart">View your cart</string>
 </resources>

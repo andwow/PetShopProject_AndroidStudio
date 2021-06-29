@@ -1,5 +1,6 @@
 package com.example.petshopproject.fragments
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,16 +14,14 @@ import com.example.petshopproject.models.Product
 import com.example.petshopproject.models.Shop
 import com.example.petshopproject.models.User
 
-class ProductFragment (product: Product, shop: Shop, user: User) : Fragment() {
-    private val shop = shop
-    private val product = product
-    private val user = user
+class ProductFragment (private val product: Product, private val shop: Shop, private val user: User) : Fragment() {
     private var count: Int = 0
+    @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val view: View = inflater.inflate(R.layout.product_fragment, container, false)
         val productName = view.findViewById<TextView>(R.id.product_name)
         val productDescription = view.findViewById<TextView>(R.id.product_description)
@@ -49,19 +48,19 @@ class ProductFragment (product: Product, shop: Shop, user: User) : Fragment() {
         }
         return view
     }
-    fun decreaseCount(counter: TextView) {
+    private fun decreaseCount(counter: TextView) {
         --count
         counter.text = count.toString()
     }
-    fun increaseCount(counter: TextView) {
+    private fun increaseCount(counter: TextView) {
         ++count
         counter.text = count.toString()
     }
-    fun addOrderToCart() {
+    private fun addOrderToCart() {
         user.addOrder(Order(count, product))
         cancelOrder()
     }
-    fun cancelOrder() {
+    private fun cancelOrder() {
         val fragmentManager = super.getActivity()?.supportFragmentManager
         val fragmentTransaction = fragmentManager?.beginTransaction()
         fragmentTransaction?.replace(R.id.shopping_fragment, ShopLayoutFragment(shop, user))

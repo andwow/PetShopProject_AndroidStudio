@@ -17,8 +17,8 @@ class RegisterFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        val view: View = inflater!!.inflate(R.layout.register_fragment, container, false)
+    ): View {
+        val view: View = inflater.inflate(R.layout.register_fragment, container, false)
         val username = view.findViewById<TextView>(R.id.username_register)
         val password = view.findViewById<TextView>(R.id.password_register)
         val email = view.findViewById<TextView>(R.id.email_register)
@@ -47,7 +47,7 @@ class RegisterFragment : Fragment() {
                     }
                     for (dc: DocumentChange in value?.documentChanges!!) {
                         if (dc.type == DocumentChange.Type.ADDED) {
-                            var user = dc.document.toObject(User::class.java);
+                            val user = dc.document.toObject(User::class.java)
                             if (user.username.equals(username)) {
                                 return
                             }
