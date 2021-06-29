@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.LoginFragment">
+    tools:context=".fragments.LoginFragment"
+    android:background="@color/teal_700">
     <FrameLayout
         android:id="@+id/frame_layout"
         android:layout_height="300dp"
@@ -26,7 +27,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="username"
-            android:maxLength="100"/>
+            android:maxLength="100"
+            android:background="@color/purple_200"/>
     </com.google.android.material.textfield.TextInputLayout>
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="350dp"
@@ -43,7 +45,8 @@
             android:layout_height="match_parent"
             android:hint="password"
             android:maxLength="100"
-            android:inputType="textPassword"/>
+            android:inputType="textPassword"
+            android:background="@color/purple_200"/>
     </com.google.android.material.textfield.TextInputLayout>
     </FrameLayout>
     <LinearLayout
