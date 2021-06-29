@@ -1,6 +1,10 @@
 package com.example.petshopproject.models;
 
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firestore.v1.Document;
+
 public class Shop {
+    private String document;
     private Long shopId;
     private String name;
     private String description;
@@ -11,11 +15,12 @@ public class Shop {
         description = "";
         location = "";
     }
-    public Shop(Long shopId, String name, String description, String location) {
+    public Shop(Long shopId, String name, String description, String location, String document) {
         this.shopId = shopId;
         this.name = name;
         this.description = description;
         this.location = location;
+        this.document = document;
     }
     public void setShopId(Long shopId) {
         this.shopId = shopId;
@@ -38,7 +43,7 @@ public class Shop {
     public void setLocation(String location) {
         this.location = location;
     }
-    public String getLocation() {
-        return location;
-    }
+    public String getLocation() { return location; }
+    public String getDocument() { return document; }
+    public void setDocument(String document) { this.document = document; }
 }

@@ -1,21 +1,27 @@
 package com.example.petshopproject.models;
 
 public class Product {
-    private int productId;
+    private Long productId;
     private String name;
     private String description;
-    private float price;
-
-    public Product(int productId, String name, String description, float price) {
+    private Float price;
+    public Product()
+    {
+        productId = 0L;
+        name = "";
+        description = "";
+        price = 0.0F;
+    }
+    public Product(Long productId, String name, String description, Float price) {
         this.productId = productId;
         this.name = name;
         this.description = description;
         this.price = price;
     }
-    public void setProductId(int productId) {
+    public void setProductId(Long productId) {
         this.productId = productId;
     }
-    public int getProductId() {
+    public Long getProductId() {
         return productId;
     }
     public void setName(String name) {
@@ -30,10 +36,10 @@ public class Product {
     public String getDescription() {
         return description;
     }
-    public void setPrice(float price) {
+    public void setPrice(Float price) {
         this.price = price;
     }
-    public float getPrice() {
+    public Float getPrice() {
         return price;
     }
 }

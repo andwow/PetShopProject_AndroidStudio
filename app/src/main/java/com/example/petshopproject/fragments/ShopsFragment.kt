@@ -33,8 +33,8 @@ class ShopsFragment : Fragment() {
 
         val adapter = ShopAdapter(
             shops,
-            OnShopItemClick {changeFragment()})
-        recyclerView.adapter=adapter
+            OnShopItemClick {shop -> changeFragment(shop)})
+        recyclerView?.adapter=adapter
         eventChangeListener(adapter)
     }
 
@@ -48,7 +48,9 @@ class ShopsFragment : Fragment() {
                 }
                 for(dc:DocumentChange in value?.documentChanges!!) {
                     if (dc.type == DocumentChange.Type.ADDED) {
-                        shops.add(dc.document.toObject(Shop::class.java))
+                        var shop = dc.document.toObject(Shop::class.java);
+                        shop.document = dc.document.id
+                        shops.add(shop)
                     }
                 }
                 adapter.notifyDataSetChanged()
@@ -57,10 +59,10 @@ class ShopsFragment : Fragment() {
 
     }
 
-    private fun changeFragment() {
+    private fun changeFragment(shop: Shop) {
         val fragmentManager = super.getActivity()?.supportFragmentManager
         val fragmentTransaction = fragmentManager!!.beginTransaction()
-        fragmentTransaction!!.replace(R.id.fragment, ShopLayoutFragment())
+        fragmentTransaction!!.replace(R.id.fragment, ShopLayoutFragment(shop))
         fragmentTransaction!!.commit()
     }
 }
