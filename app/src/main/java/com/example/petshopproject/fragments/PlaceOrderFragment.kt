@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.petshopproject.R
+import com.example.petshopproject.models.PlaceOrder
 import com.example.petshopproject.models.Shop
 import com.example.petshopproject.models.User
 import com.google.firebase.firestore.FirebaseFirestore
@@ -26,15 +27,13 @@ class PlaceOrderFragment (private val shop: Shop, private val user: User) : Frag
         val cancel = view.findViewById<Button>(R.id.cancel_place_order)
         yourCurrentLocation.setOnClickListener {
             if(user.orders.isNotEmpty()) {
-                db.collection("orders").add(user)
+                db.collection("orders").add(PlaceOrder(user.username, user.email, user.location, user.orders))
                 super.requireActivity().finish()
             }
         }
         anotherLocationButton.setOnClickListener {
             if(anotherLocationInput.text.isNotBlank()) {
-                val anotherLocationUser = User(user.username, user.password, user.email, anotherLocationInput.text.toString())
-                anotherLocationUser.orders = user.orders
-                db.collection("orders").add(anotherLocationUser)
+                db.collection("orders").add(PlaceOrder(user.username, user.email, anotherLocationInput.text.toString(), user.orders))
                 super.requireActivity().finish()
             }
         }
