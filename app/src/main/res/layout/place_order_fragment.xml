@@ -9,7 +9,7 @@
     <LinearLayout
         android:id="@+id/buttons"
         android:layout_width="0dp"
-        android:layout_height="150dp"
+        android:layout_height="0dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,6 +21,26 @@
             android:layout_height="50dp"
             android:layout_margin="10dp"
             android:text="@string/use_your_location"
+            android:layout_gravity="center_horizontal"/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_vertical|center_horizontal">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/another_location_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/another_location"
+            android:maxLength="100"
+            android:background="@color/purple_200"
+            android:singleLine="true"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <Button
+            android:id="@+id/another_location"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:text="@string/use_another_location"
             android:layout_gravity="center_horizontal"/>
         <Button
             android:id="@+id/cancel_place_order"

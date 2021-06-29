@@ -29,7 +29,6 @@ public class User implements Serializable {
     public String getUsername() {
         return username;
     }
-
     public void setUsername(String userName) {
         this.username = userName;
     }
@@ -37,7 +36,6 @@ public class User implements Serializable {
     public String getPassword() {
         return password;
     }
-
     public void setPassword(String password) {
         this.password = password;
     }
@@ -45,7 +43,6 @@ public class User implements Serializable {
     public String getEmail() {
         return email;
     }
-
     public void setEmail(String email) {
         this.email = email;
     }
@@ -53,12 +50,12 @@ public class User implements Serializable {
     public String getLocation() {
         return location;
     }
-
     public void setLocation(String location) {
         this.location = location;
     }
 
     public List<Order> getOrders() { return orders; }
+    public void setOrders(List<Order> orders) { this.orders = orders; }
     public void addOrder(Order order) { orders.add(order); }
     public void removeOrder(Order order) { orders.remove(order); }
     public void clearOrders() { orders.clear(); }

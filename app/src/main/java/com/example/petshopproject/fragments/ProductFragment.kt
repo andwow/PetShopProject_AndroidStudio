@@ -57,8 +57,10 @@ class ProductFragment (private val product: Product, private val shop: Shop, pri
         counter.text = count.toString()
     }
     private fun addOrderToCart() {
-        user.addOrder(Order(count, product))
-        cancelOrder()
+        if(count != 0) {
+            user.addOrder(Order(count, product))
+            cancelOrder()
+        }
     }
     private fun cancelOrder() {
         val fragmentManager = super.getActivity()?.supportFragmentManager

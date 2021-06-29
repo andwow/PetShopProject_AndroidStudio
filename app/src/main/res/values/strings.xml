@@ -15,4 +15,6 @@
     <string name="view_your_cart">View your cart</string>
     <string name="place_order">Place order</string>
     <string name="use_your_location">Use your location</string>
+    <string name="use_another_location">Use another location</string>
+    <string name="another_location">another location</string>
 </resources>

@@ -10,10 +10,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.petshopproject.R
 import com.example.petshopproject.adapters.OrderAdapter
+import com.example.petshopproject.models.Order
 import com.example.petshopproject.models.Shop
 import com.example.petshopproject.models.User
 
 class YourCartFragment(private val shop: Shop, private val user: User) : Fragment() {
+    private var adapter: OrderAdapter = OrderAdapter(user.orders) {}
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -39,15 +42,21 @@ class YourCartFragment(private val shop: Shop, private val user: User) : Fragmen
         val recyclerView = view.findViewById<RecyclerView>(R.id.orders_recyclerview)
         val linearLayoutManager = LinearLayoutManager(view.context)
         recyclerView?.layoutManager = linearLayoutManager
-        val adapter = OrderAdapter(
+        adapter = OrderAdapter(
             user.orders
-        ) {}
+        ) {order -> removeOrder(order)}
         recyclerView?.adapter=adapter
+    }
+
+    private fun removeOrder(order: Order) {
+        user.removeOrder(order)
+        this.adapter.notifyDataSetChanged()
+
     }
     private fun placeOrderFunction() {
         val fragmentManager = super.getActivity()?.supportFragmentManager
         val fragmentTransaction = fragmentManager?.beginTransaction()
-        fragmentTransaction?.replace(R.id.shopping_fragment, PlaceOrderFragment(user))
+        fragmentTransaction?.replace(R.id.shopping_fragment, PlaceOrderFragment(shop, user))
         fragmentTransaction?.commit()
     }
     private fun cancelViewCart() {
