@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -24,6 +25,12 @@ class ShopLayoutFragment(shop: Shop) : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view: View = inflater.inflate(R.layout.shop_layout_fragment, container, false)
+        val shopName = view.findViewById<TextView>(R.id.shop_name_for_layout)
+        val shopDescription = view.findViewById<TextView>(R.id.shop_description_for_layout)
+        val shopLocation = view.findViewById<TextView>(R.id.shop_location_for_layout)
+        shopName.text = shop.name
+        shopDescription.text = shopDescription.text.toString() + " " + shop.description
+        shopLocation.text = shopLocation.text.toString() + " " + shop.location
         setUpRecyclerView(view)
         return view
     }

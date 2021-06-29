@@ -1,22 +1,22 @@
 package com.example.petshopproject
 
-import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.example.petshopproject.fragments.ShopLayoutFragment
 import com.example.petshopproject.fragments.ShopsFragment
 import com.example.petshopproject.models.Shop
 
-class MainActivity : AppCompatActivity() {
+class ShoppingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        changeFragment()
+        setContentView(R.layout.shopping_activity)
+        val shop:Shop = intent.getSerializableExtra("shop") as Shop
+        changeFragment(shop)
     }
-
-    private fun changeFragment() {
+    private fun changeFragment(shop: Shop) {
         val fragmentManager = supportFragmentManager
         val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.add(R.id.fragment, ShopsFragment())
+        fragmentTransaction.add(R.id.shopping_fragment, ShopLayoutFragment(shop))
         fragmentTransaction.commit()
     }
 }

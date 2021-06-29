@@ -3,7 +3,9 @@ package com.example.petshopproject.models;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firestore.v1.Document;
 
-public class Shop {
+import java.io.Serializable;
+
+public class Shop implements Serializable {
     private String document;
     private Long shopId;
     private String name;

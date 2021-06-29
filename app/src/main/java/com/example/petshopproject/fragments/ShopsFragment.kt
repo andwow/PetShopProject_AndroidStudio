@@ -1,5 +1,6 @@
 package com.example.petshopproject.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.petshopproject.R
+import com.example.petshopproject.ShoppingActivity
 import com.example.petshopproject.adapters.ShopAdapter
 import com.example.petshopproject.interfaces.OnShopItemClick
 import com.example.petshopproject.models.Shop
@@ -33,7 +35,7 @@ class ShopsFragment : Fragment() {
 
         val adapter = ShopAdapter(
             shops,
-            OnShopItemClick {shop -> changeFragment(shop)})
+            OnShopItemClick {shop -> changeActivity(shop)})
         recyclerView?.adapter=adapter
         eventChangeListener(adapter)
     }
@@ -59,10 +61,8 @@ class ShopsFragment : Fragment() {
 
     }
 
-    private fun changeFragment(shop: Shop) {
-        val fragmentManager = super.getActivity()?.supportFragmentManager
-        val fragmentTransaction = fragmentManager!!.beginTransaction()
-        fragmentTransaction!!.replace(R.id.fragment, ShopLayoutFragment(shop))
-        fragmentTransaction!!.commit()
+    private fun changeActivity(shop: Shop) {
+        val switchActivityIntent = Intent(super.requireActivity(), ShoppingActivity::class.java).putExtra("shop", shop)
+        startActivity(switchActivityIntent);
     }
 }
