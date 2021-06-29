@@ -14,9 +14,11 @@ import com.example.petshopproject.adapters.ProductAdapter
 import com.example.petshopproject.interfaces.OnProductItemClick
 import com.example.petshopproject.models.Product
 import com.example.petshopproject.models.Shop
+import com.example.petshopproject.models.User
 import com.google.firebase.firestore.*
 
-class ShopLayoutFragment(shop: Shop) : Fragment() {
+class ShopLayoutFragment(shop: Shop, user: User) : Fragment() {
+    private val user: User = user
     private val shop: Shop = shop
     private val products: ArrayList<Product> = ArrayList()
     override fun onCreateView(
