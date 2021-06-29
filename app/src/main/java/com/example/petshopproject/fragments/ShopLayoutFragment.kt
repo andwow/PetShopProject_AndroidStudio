@@ -37,10 +37,6 @@ class ShopLayoutFragment(shop: Shop, user: User) : Fragment() {
         return view
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-    }
-
     private fun setUpRecyclerView(view: View) {
         val recyclerView = view.findViewById<RecyclerView>(R.id.products_recyclerview);
         val linearLayoutManager = LinearLayoutManager(view.context);

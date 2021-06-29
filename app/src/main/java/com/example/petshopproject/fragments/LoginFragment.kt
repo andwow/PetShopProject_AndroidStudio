@@ -19,25 +19,31 @@ class LoginFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        var userLogged: User? = null
         val view: View = inflater!!.inflate(R.layout.login_fragment, container, false)
         val username = view.findViewById<TextView>(R.id.username)
         val password = view.findViewById<TextView>(R.id.password)
         val login = view.findViewById<Button>(R.id.login_button)
+        val register = view.findViewById<Button>(R.id.register_button)
         login.setOnClickListener {
             val userLogged = search(username.text.toString(), password.text.toString())
-            if (userLogged != null) {
-
-
-            }
+        }
+        register.setOnClickListener {
+            register()
         }
         return view
     }
 
-    private fun changeFragment(user: User) {
+    private fun logIn(user: User) {
         val fragmentManager = super.getActivity()?.supportFragmentManager
         val fragmentTransaction = fragmentManager?.beginTransaction()
         fragmentTransaction?.replace(R.id.fragment, ShopsFragment(user))
+        fragmentTransaction?.commit()
+    }
+
+    private fun register() {
+        val fragmentManager = super.getActivity()?.supportFragmentManager
+        val fragmentTransaction = fragmentManager?.beginTransaction()
+        fragmentTransaction?.replace(R.id.fragment, RegisterFragment())
         fragmentTransaction?.commit()
     }
 
@@ -54,7 +60,7 @@ class LoginFragment : Fragment() {
                     if (dc.type == DocumentChange.Type.ADDED) {
                         var user = dc.document.toObject(User::class.java);
                         if(user.username.equals(username) && user.password.equals(password)) {
-                            changeFragment(user)
+                            logIn(user)
                         }
                         if(user.username.equals(username)) {
                             return
