@@ -13,4 +13,6 @@
     <string name="less">Less</string>
     <string name="add_to_cart">Add to cart</string>
     <string name="view_your_cart">View your cart</string>
+    <string name="place_order">Place order</string>
+    <string name="use_your_location">Use your location</string>
 </resources>

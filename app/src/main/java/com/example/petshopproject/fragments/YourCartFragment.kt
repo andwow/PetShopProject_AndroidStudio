@@ -20,7 +20,14 @@ class YourCartFragment(private val shop: Shop, private val user: User) : Fragmen
         savedInstanceState: Bundle?
     ): View {
         val view: View = inflater.inflate(R.layout.your_cart_fragment, container, false)
+        val placeOrder = view.findViewById<Button>(R.id.place_order)
         val cancel = view.findViewById<Button>(R.id.cancel_view_cart)
+        placeOrder.setOnClickListener {
+            if (user.orders.isNotEmpty())
+            {
+                placeOrderFunction()
+            }
+        }
         cancel.setOnClickListener {
             cancelViewCart()
         }
@@ -37,7 +44,12 @@ class YourCartFragment(private val shop: Shop, private val user: User) : Fragmen
         ) {}
         recyclerView?.adapter=adapter
     }
-
+    private fun placeOrderFunction() {
+        val fragmentManager = super.getActivity()?.supportFragmentManager
+        val fragmentTransaction = fragmentManager?.beginTransaction()
+        fragmentTransaction?.replace(R.id.shopping_fragment, PlaceOrderFragment(user))
+        fragmentTransaction?.commit()
+    }
     private fun cancelViewCart() {
         val fragmentManager = super.getActivity()?.supportFragmentManager
         val fragmentTransaction = fragmentManager?.beginTransaction()

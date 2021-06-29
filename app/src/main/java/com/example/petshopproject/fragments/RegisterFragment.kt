@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.example.petshopproject.R
 import com.example.petshopproject.models.User
+import com.example.petshopproject.models.UserForRegister
 import com.google.firebase.firestore.*
 
 class RegisterFragment : Fragment() {
@@ -56,7 +57,7 @@ class RegisterFragment : Fragment() {
                             }
                         }
                     }
-                    db.collection("users").add(User(username, password, email, location))
+                    db.collection("users").add(UserForRegister(username, password, email, location))
                     cancel()
                 }
             })
