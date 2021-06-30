@@ -20,4 +20,5 @@
     <string name="your_profile">Your profile</string>
     <string name="username">Username:</string>
     <string name="e_mail">E-mail:</string>
+    <string name="phone_number">Phone number:</string>
 </resources>

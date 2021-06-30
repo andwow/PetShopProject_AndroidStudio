@@ -28,6 +28,13 @@
         android:layout_margin="10dp"
         android:text="@string/e_mail"
         android:layout_gravity="center"/>
+        <TextView
+            android:id="@+id/phone_number_profile"
+            android:layout_width="350dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:text="@string/phone_number"
+            android:layout_gravity="center"/>
     <TextView
         android:id="@+id/location_profile"
         android:layout_width="350dp"

@@ -19,9 +19,11 @@ class ProfileFragment(private val user: User) : Fragment() {
         val view: View = inflater.inflate(R.layout.profile_fragment, container, false)
         val username = view.findViewById<TextView>(R.id.username_profile)
         val email = view.findViewById<TextView>(R.id.email_profile)
+        val phoneNumber = view.findViewById<TextView>(R.id.phone_number_profile)
         val location = view.findViewById<TextView>(R.id.location_profile)
         username.text = username.text.toString() + " " + user.username
         email.text = email.text.toString() + " " + user.email
+        phoneNumber.text = phoneNumber.text.toString() + " " + user.phoneNumber
         location.text = location.text.toString() + " " + user.location
         val cancelButton = view.findViewById<Button>(R.id.cancel_profile)
         cancelButton.setOnClickListener {
