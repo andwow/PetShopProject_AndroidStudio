@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -24,6 +25,10 @@ class ShopsFragment(private val user: User) : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val view: View = inflater.inflate(R.layout.shops_fragment, container, false)
+        val profileButton = view.findViewById<Button>(R.id.profile)
+        profileButton.setOnClickListener {
+            changeToProfileFragment()
+        }
         setUpRecyclerView(view)
         return view
     }
@@ -59,6 +64,13 @@ class ShopsFragment(private val user: User) : Fragment() {
             }
         })
 
+    }
+
+    private fun changeToProfileFragment() {
+        val fragmentManager = super.getActivity()?.supportFragmentManager
+        val fragmentTransaction = fragmentManager?.beginTransaction()
+        fragmentTransaction?.replace(R.id.fragment, ProfileFragment(user))
+        fragmentTransaction?.commit()
     }
 
     private fun changeActivity(shop: Shop) {

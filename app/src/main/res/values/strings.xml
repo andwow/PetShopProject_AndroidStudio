@@ -17,4 +17,7 @@
     <string name="use_your_location">Use your location</string>
     <string name="use_another_location">Use another location</string>
     <string name="another_location">another location</string>
+    <string name="your_profile">Your profile</string>
+    <string name="username">Username:</string>
+    <string name="e_mail">E-mail:</string>
 </resources>
