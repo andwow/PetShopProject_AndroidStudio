@@ -8,20 +8,23 @@ public class User implements Serializable {
     private String username;
     private String password;
     private String email;
+    private String phoneNumber;
     private String location;
     private List<Order> orders;
     public User() {
         username = "";
         password = "";
         email = "";
+        phoneNumber = "";
         location = "";
         orders = new ArrayList<Order>();
     }
 
-    public User(String username, String password, String email, String location) {
+    public User(String username, String password, String email, String phoneNumber, String location) {
         this.username = username;
         this.password = password;
         this.email = email;
+        this.phoneNumber = phoneNumber;
         this.location = location;
         orders = new ArrayList<Order>();
     }
@@ -47,6 +50,9 @@ public class User implements Serializable {
         this.email = email;
     }
 
+    public String getPhoneNumber() { return phoneNumber; }
+    public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
+
     public String getLocation() {
         return location;
     }
@@ -59,4 +65,6 @@ public class User implements Serializable {
     public void addOrder(Order order) { orders.add(order); }
     public void removeOrder(Order order) { orders.remove(order); }
     public void clearOrders() { orders.clear(); }
+
+
 }

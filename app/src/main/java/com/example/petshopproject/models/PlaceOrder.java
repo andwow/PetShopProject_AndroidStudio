@@ -7,23 +7,27 @@ import java.util.List;
 public class PlaceOrder implements Serializable {
     private String username;
     private String email;
+    private String phoneNumber;
     private String location;
     private List<Order> orders;
     public PlaceOrder() {
         username = "";
         email = "";
+        phoneNumber = "";
         location = "";
         orders = new ArrayList<Order>();
     }
-    public PlaceOrder(String username, String email, String location) {
+    public PlaceOrder(String username, String email, String phoneNumber, String location) {
         this.username = username;
         this.email = email;
+        this.phoneNumber = phoneNumber;
         this.location = location;
         orders = new ArrayList<Order>();
     }
-    public PlaceOrder(String username, String email, String location, List<Order> orders) {
+    public PlaceOrder(String username, String email, String phoneNumber, String location, List<Order> orders) {
         this.username = username;
         this.email = email;
+        this.phoneNumber = phoneNumber;
         this.location = location;
         this.orders = orders;
     }
@@ -41,6 +45,9 @@ public class PlaceOrder implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public String getPhoneNumber() { return phoneNumber; }
+    public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
 
     public String getLocation() {
         return location;

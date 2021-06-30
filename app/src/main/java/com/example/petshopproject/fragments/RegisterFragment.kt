@@ -23,11 +23,12 @@ class RegisterFragment : Fragment() {
         val username = view.findViewById<TextView>(R.id.username_register)
         val password = view.findViewById<TextView>(R.id.password_register)
         val email = view.findViewById<TextView>(R.id.email_register)
+        val phoneNumber = view.findViewById<TextView>(R.id.phone_number_register)
         val location = view.findViewById<TextView>(R.id.location_register)
         val register = view.findViewById<Button>(R.id.sign_up_button)
         val cancel = view.findViewById<Button>(R.id.cancel_button)
         register.setOnClickListener {
-            register(username.text.toString(), password.text.toString(), email.text.toString(), location.text.toString())
+            register(username.text.toString(), password.text.toString(), email.text.toString(), phoneNumber.text.toString(), location.text.toString())
         }
         cancel.setOnClickListener {
             cancel()
@@ -35,9 +36,10 @@ class RegisterFragment : Fragment() {
         return view
     }
 
-    private fun register(username: String, password: String, email: String, location: String) {
+    private fun register(username: String, password: String, email: String, phoneNumber: String, location: String) {
         if(username != "" && password != "" && email != "" && location != "") {
             val emailRegex = Regex(".+@.+\\..+")
+            val phoneRegex = Regex("\\+?[0-9]+")
             val db = FirebaseFirestore.getInstance()
             db.collection("users").addSnapshotListener(object :
                 EventListener<QuerySnapshot> {
@@ -55,9 +57,12 @@ class RegisterFragment : Fragment() {
                             if (user.email.equals(email) || !emailRegex.matches(email)) {
                                 return
                             }
+                            if (user.phoneNumber.equals(phoneNumber) || !phoneRegex.matches(phoneNumber)) {
+                                return
+                            }
                         }
                     }
-                    db.collection("users").add(UserForRegister(username, password, email, location))
+                    db.collection("users").add(UserForRegister(username, password, email, phoneNumber, location))
                     cancel()
                 }
             })

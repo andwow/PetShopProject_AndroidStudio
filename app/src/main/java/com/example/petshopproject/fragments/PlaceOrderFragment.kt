@@ -27,13 +27,13 @@ class PlaceOrderFragment (private val shop: Shop, private val user: User) : Frag
         val cancel = view.findViewById<Button>(R.id.cancel_place_order)
         yourCurrentLocation.setOnClickListener {
             if(user.orders.isNotEmpty()) {
-                db.collection("orders").add(PlaceOrder(user.username, user.email, user.location, user.orders))
+                db.collection("orders").add(PlaceOrder(user.username, user.email, user.phoneNumber, user.location, user.orders))
                 super.requireActivity().finish()
             }
         }
         anotherLocationButton.setOnClickListener {
             if(anotherLocationInput.text.isNotBlank()) {
-                db.collection("orders").add(PlaceOrder(user.username, user.email, anotherLocationInput.text.toString(), user.orders))
+                db.collection("orders").add(PlaceOrder(user.username, user.email, user.phoneNumber, anotherLocationInput.text.toString(), user.orders))
                 super.requireActivity().finish()
             }
         }

@@ -8,18 +8,21 @@ public class UserForRegister implements Serializable {
     private String username;
     private String password;
     private String email;
+    private String phoneNumber;
     private String location;
     public UserForRegister() {
         username = "";
         password = "";
         email = "";
+        phoneNumber = "";
         location = "";
     }
 
-    public UserForRegister(String username, String password, String email, String location) {
+    public UserForRegister(String username, String password, String email, String phoneNumber, String location) {
         this.username = username;
         this.password = password;
         this.email = email;
+        this.phoneNumber = phoneNumber;
         this.location = location;
     }
 
@@ -47,11 +50,15 @@ public class UserForRegister implements Serializable {
         this.email = email;
     }
 
+    public String getPhoneNumber() { return phoneNumber; }
+    public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
+
     public String getLocation() {
         return location;
     }
-
     public void setLocation(String location) {
         this.location = location;
     }
+
+
 }
