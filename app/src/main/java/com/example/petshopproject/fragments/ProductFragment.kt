@@ -49,8 +49,10 @@ class ProductFragment (private val product: Product, private val shop: Shop, pri
         return view
     }
     private fun decreaseCount(counter: TextView) {
-        --count
-        counter.text = count.toString()
+        if(count != 0) {
+            --count
+            counter.text = count.toString()
+        }
     }
     private fun increaseCount(counter: TextView) {
         ++count
